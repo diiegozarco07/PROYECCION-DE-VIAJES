@@ -97,7 +97,7 @@ def main():
                     else:
                         st.error("Usuario o contraseña incorrectos")
             
-            st.info("**Credenciales de Acceso:**\n\n*   **Admin:** `admin` / `admin123`\n*   **Trabajador:** `trabajador` / `user123`")
+            st.info("**Credenciales de Acceso:**\n\nSolicite las credenciales al administrador del sistema.")
         return
 
     # --- SI ESTÁ LOGUEADO ---

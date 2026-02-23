@@ -1,16 +1,20 @@
 import hashlib
 import os
+from dotenv import load_dotenv
+
+# Cargar variables de entorno desde el archivo .env si existe
+load_dotenv()
 
 # Simulación de base de datos de usuarios (en producción usar DB real)
 # En un caso real, las contraseñas estarían hasheadas.
 USERS = {
     "admin": {
-        "password": "admin123", # Cambiar por os.getenv("ADMIN_PASSWORD")
+        "password": os.getenv("ADMIN_PASSWORD"),
         "role": "Admin",
         "name": "Administrador Principal"
     },
     "trabajador": {
-        "password": "user123",
+        "password": os.getenv("USER_PASSWORD"),
         "role": "Trabajador",
         "name": "Usuario Operativo"
     }
@@ -18,6 +22,8 @@ USERS = {
 
 def verify_login(username, password):
     if username in USERS:
-        if USERS[username]["password"] == password:
+        # Verificar que la contraseña en la configuración no sea None
+        stored_password = USERS[username]["password"]
+        if stored_password and stored_password == password:
             return USERS[username]
     return None
