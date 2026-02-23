@@ -1,0 +1,29 @@
+# Archivos de entorno y secretos (IMPORTANTE: NO SUBIR)
+.env
+.env.local
+
+# Bases de datos locales
+logistica.db
+*.sqlite3
+
+# Archivos temporales y de compilación
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+.tmp.*
+.tmp.drivedownload/
+.tmp.driveupload/
+
+# Archivos de ngrok (No necesarios en el repo)
+ngrok.exe
+ngrok.zip
+
+# Carpetas o repos externos
+NRGFLEET/
+
+# Archivos de Excel temporales o subidos
+temp_upload_*.xlsx
+
+# Carpetas de VSCode
+.vscode/
