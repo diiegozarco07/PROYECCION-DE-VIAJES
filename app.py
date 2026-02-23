@@ -21,13 +21,15 @@ try:
     import pandas as pd
     from sqlalchemy.orm import sessionmaker
     from datetime import datetime, date, timedelta
-    from modelos import engine, Usuario, Viaje, Vehiculo
+    from modelos import engine, Usuario, Viaje, Vehiculo, Base
     from limpiador_excel import procesar_excel
 except Exception as e:
     st.error(f"Error crítico al importar módulos: {e}")
     st.stop()
 
 # Configurar sesión de base de datos
+# --- CRUCIAL: Asegurar que las tablas existen (especialmente en la nube) ---
+Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 
 def get_session():
